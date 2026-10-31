@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: alqannas-market-relay
+    runtime: node
+    plan: free
+    buildCommand: node --version
+    startCommand: node relay/market-data.cjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: ALLOWED_ORIGINS
+        value: https://mostafamnoon.github.io
